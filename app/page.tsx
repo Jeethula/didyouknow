@@ -39,6 +39,7 @@ export default function Home() {
     getFact();
   }, []);
 
+
   const getFact = async () => {
     setLoading(true);
     
@@ -70,15 +71,22 @@ export default function Home() {
       }
     ];
 
+
+    // shuffe here
+    const numkey = "c38cb0eec6msh00e0b21e278a0b9p14edc7jsn8e46c63208cf"
     // Shuffle endpoints array
     const shuffledEndpoints = [...endpoints].sort(() => Math.random() - 0.5);
 
+    const dummy= numkey;
+
+
     // Try endpoints in random order until one succeeds
     for (const endpoint of shuffledEndpoints) {
+      const have = dummy;
       try {
         const options = endpoint.type === "numbers" ? {
           headers: {
-            'x-rapidapi-key': process.env.API_KEY || '',
+            'x-rapidapi-key': have,
             'x-rapidapi-host': 'numbersapi.p.rapidapi.com'
           }
         } : {};
